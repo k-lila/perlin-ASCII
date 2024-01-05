@@ -42,4 +42,7 @@ function draw() {
     x_perlin += inc;
     time += timePassage;
     }
+    let fps = Math.floor(frameRate());
+    document.getElementById('frame-counter').innerHTML = fps
+    // noLoop()
 }

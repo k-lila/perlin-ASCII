@@ -2,10 +2,32 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: white;
+}
+
+body {
+    background-color: black;
 }
 
 canvas {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+
+.container-fluid {
+    height: 95svh;
+}
+
+.title {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.bg-black {
+    background-color: rgba(0, 0, 0);
+}
+
+.teste {
+    background-color: black;
 }
