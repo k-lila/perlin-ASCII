@@ -15,19 +15,10 @@ canvas {
     left: 0;
 }
 
-
-.container-fluid {
-    height: 95svh;
-}
-
 .title {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 .bg-black {
     background-color: rgba(0, 0, 0);
-}
-
-.teste {
-    background-color: black;
 }
