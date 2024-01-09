@@ -14,6 +14,7 @@ var perlin_ascii = function(p) {
     // p.paleta = ['#001219', '#005F73', '#0A9396', '#94D2BD', '#E9D8A6', '#EE9B00', '#CA6702', '#BB3E03', '#AE2012', '#9B2226'];
     p.time = 0;
     p.test = true;
+    p.test_counter = 0;
 
     p.setup = function() {
         p.createCanvas(window.innerWidth, window.innerHeight);
@@ -43,19 +44,19 @@ var perlin_ascii = function(p) {
         document.getElementById('frame-counter').innerHTML = `fps: ${fps}`;
         
         if (p.test) {
-            if (fps > 20) {
+            if (fps > 15) {
                 p.size -= 1;
                 p.cols = Math.floor(p.width/p.size);
                 p.rows = Math.floor(p.height/p.size);
                 document.getElementById('font-size').value = p.size;
                 document.getElementById('font-size-num').innerHTML = p.size;
-
             } else {
+                p.test_counter += 1;
+            }
+            if (p.test_counter == 10) {
                 p.test = false
             }
         }
-
-
         // p.noLoop();
     }
 }
