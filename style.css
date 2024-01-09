@@ -23,8 +23,8 @@ canvas {
     opacity: 0.7;
 }
 
-.title {
-    background-color: rgba(0, 0, 0, 0.7);
+.bg-black-7 {
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .bg-black {
