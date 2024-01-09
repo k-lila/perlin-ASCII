@@ -1,42 +1,62 @@
 var perlin_ascii = function(p) {
     p.width = window.innerWidth;
     p.height = window.innerHeight;
-    p.density = 'Ñ@#W$9876543210?!abc;:+=-,._ ';
+    p.density = ' _.,-=+:;cba!?0123456789$W#@Ñ';
     p.size = parseInt(document.getElementById('font-size').value);
+    p.textModifier = 0.5 / p.density.length;
     p.noiseScale = parseInt(document.getElementById('scale').value);
     p.inc = parseFloat(document.getElementById('increment').value);
     p.timePassage = parseFloat(document.getElementById('time-passage').value);
     p.cols = Math.floor(p.width/p.size);
     p.rows = Math.floor(p.height/p.size);
-    p.paleta = ['#541e35', '#df5d2e', '#ffb43e', '#a4c972', '#6bb38e'];
+    // p.paleta = ['#541e35', '#df5d2e', '#ffb43e', '#a4c972', '#6bb38e'];
+    p.paleta = ['red', 'white'];
+    // p.paleta = ['#001219', '#005F73', '#0A9396', '#94D2BD', '#E9D8A6', '#EE9B00', '#CA6702', '#BB3E03', '#AE2012', '#9B2226'];
     p.time = 0;
+    p.test = true;
+
     p.setup = function() {
         p.createCanvas(window.innerWidth, window.innerHeight);
         p.textAlign(p.RIGHT, p.CENTER);
     }
     p.draw = function() {
         p.background(0);
-        p.textSize(p.size);
         let x_perlin = 0;
         for (let i=0; i<p.cols; i++) {
             let y_perlin = 0;
             for (let j=0; j<p.rows; j++) {
-                let x = p.size + i*p.size;
-                let y = p.size + j*p.size;
-                let ruido = p.noise(x_perlin * p.noiseScale, y_perlin * p.noiseScale, p.time * p.noiseScale);
-                let caracter = Math.floor(p.density.length * ruido)
-                let color = Math.floor(p.paleta.length * ruido)
+                const x = p.size + i*p.size;
+                const y = p.size + j*p.size;
+                const ruido = p.noise(x_perlin * p.noiseScale, y_perlin * p.noiseScale, p.time * p.noiseScale);
+                const caracter = Math.floor(p.density.length * ruido);
+                const color = Math.floor(p.paleta.length * ruido);
+                const modifier = (p.textModifier * caracter) + 1;
                 p.text(p.density[caracter], x, y);
                 p.fill(p.paleta[color]);
-                p.noStroke();
+                p.textSize(p.size * modifier);
                 y_perlin += p.inc;
         }
         x_perlin += p.inc;
         p.time += p.timePassage;
         }
         let fps = Math.floor(p.frameRate());
-        document.getElementById('frame-counter').innerHTML = fps
-        // noLoop()
+        document.getElementById('frame-counter').innerHTML = `fps: ${fps}`;
+        
+        if (p.test) {
+            if (fps > 20) {
+                p.size -= 1;
+                p.cols = Math.floor(p.width/p.size);
+                p.rows = Math.floor(p.height/p.size);
+                document.getElementById('font-size').value = p.size;
+                document.getElementById('font-size-num').innerHTML = p.size;
+
+            } else {
+                p.test = false
+            }
+        }
+
+
+        // p.noLoop();
     }
 }
 

@@ -21,21 +21,33 @@
                 <i style="color: black;" class="bi bi-gear"></i>
                 Settings
             </button>
-            <ul class="dropdown-menu p-2">
+            <ul class="dropdown-menu p-2 w-50">
                 <div>
-                    <label style="color: black;" for="font-size" class="form-label">Tamanho da fonte</label>
-                    <input type="range" class="form-range" min="1" max="50" step="1" value="10" id="font-size">
+                    <div class="d-flex justify-content-between">
+                        <label style="color: black;" for="font-size" class="form-label">Tamanho da fonte</label>
+                        <span style="color: black;" id="font-size-num"></span>
+                    </div>
+                    <input type="range" class="form-range" min="1" max="50" step="1" value="50" id="font-size">
                 </div>
                 <div>
-                    <label style="color: black;" for="scale" class="form-label">Escala</label>
+                    <div class="d-flex justify-content-between">
+                        <label style="color: black;" for="scale" class="form-label">Escala</label>
+                        <span style="color: black;" id="scale-num">2</span>
+                    </div>
                     <input type="range" class="form-range" min="0.01" max="10" step="0.01" value="2" id="scale">
                 </div>
                 <div>
-                    <label style="color: black;" for="increment" class="form-label">Incremento</label>
+                    <div class="d-flex justify-content-between">
+                        <label style="color: black;" for="increment" class="form-label">Incremento</label>
+                        <span style="color: black;" id="increment-num">0.005</span>
+                    </div>
                     <input type="range" class="form-range" min="0.001" max="0.01" step="0.001" value="0.005" id="increment">
                 </div>
                 <div>
-                    <label style="color: black;" for="time-passage" class="form-label">Tempo</label>
+                    <div class="d-flex justify-content-between">
+                        <label style="color: black;" for="time-passage" class="form-label">Tempo</label>
+                        <span style="color: black;" id="time-passage-num">0.00003</span>
+                    </div>
                     <input type="range" class="form-range" min="0.000001" max="0.0001" step="0.000001" value="0.00003" id="time-passage">
                 </div>
             </ul>
