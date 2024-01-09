@@ -12,19 +12,11 @@
     font-weight: bolder;
 }
 
-body {
-    background-color: black;
-}
-
 canvas {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0.7;
-}
-
-.bg-black-7 {
-    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .bg-black {

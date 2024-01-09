@@ -9,8 +9,8 @@ var perlin_ascii = function(p) {
     p.timePassage = parseFloat(document.getElementById('time-passage').value);
     p.cols = Math.floor(p.width/p.size);
     p.rows = Math.floor(p.height/p.size);
-    // p.paleta = ['#541e35', '#df5d2e', '#ffb43e', '#a4c972', '#6bb38e'];
-    p.paleta = ['red', 'white'];
+    p.paleta = ['#541e35', '#df5d2e', '#ffb43e', '#a4c972', '#6bb38e'];
+    // p.paleta = ['red', 'white'];
     // p.paleta = ['#001219', '#005F73', '#0A9396', '#94D2BD', '#E9D8A6', '#EE9B00', '#CA6702', '#BB3E03', '#AE2012', '#9B2226'];
     p.time = 0;
     p.test = true;
@@ -50,9 +50,8 @@ var perlin_ascii = function(p) {
         x_perlin += p.inc;
         p.time += p.timePassage;
         }
-        const fps = Math.floor(p.frameRate());
+        const fps = Math.floor(p.frameRate());        
         document.getElementById('frame-counter').innerHTML = `${fps}`;
-        
         if (p.test) {
             if (fps > 25) {
                 p.size -= 1;
@@ -64,7 +63,7 @@ var perlin_ascii = function(p) {
                 p.test_counter += 1;
             }
             if (p.test_counter == 10) {
-                p.test = false
+                p.test = false;
             }
         }
     }
