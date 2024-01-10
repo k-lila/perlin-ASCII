@@ -9,7 +9,7 @@ var perlin_ascii = function(p) {
     p.timePassage = parseFloat(document.getElementById('time-passage').value);
     p.cols = Math.floor(p.width/p.size);
     p.rows = Math.floor(p.height/p.size);
-    p.paleta = ['#ffffff', '#ff0000'];
+    p.paleta = ['#ffffff', '#eeeeee', '#8b0000', '#bf0000', '#ff0000']
     p.time = 0;
     p.test = true;
     p.test_counter = 0;
@@ -51,7 +51,7 @@ var perlin_ascii = function(p) {
         const fps = Math.floor(p.frameRate());        
         document.getElementById('frame-counter').innerHTML = `${fps}`;
         if (p.test) {
-            if (fps > 15) {
+            if (fps > 9) {
                 p.size -= 1;
                 p.cols = Math.floor(p.width/p.size);
                 p.rows = Math.floor(p.height/p.size);
