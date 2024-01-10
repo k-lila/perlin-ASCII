@@ -9,53 +9,112 @@
     <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-black">
+<body style="background-color: black;">
     <canvas></canvas>
     <div class="container-fluid fixed-top">
         <div class="row align-items-center py-3">
             <div class="col-3">
-                <div class="bg-black text-center border border-2 border-light rounded" style="width: 50px;">
-                    <span id="frame-counter" class="fs-4"></span>
+                <div class="text-center border border-2 border-light rounded" style="width: 50px; background-color: black;">
+                    <span style="color: white;" id="frame-counter" class="fs-4"></span>
                 </div>
             </div>
-            <div class="col-6">
-                <h1 class="bg-black m-0 p-2 fs-1 text-center border border-light border-2 rounded mx-auto" style="width: fit-content;">
+            <div class="col-6 d-flex">
+                <h1 style="color: white; background-color: black;" class="m-0 py-1 px-2 fs-1 text-center border border-light border-2 rounded mx-auto">
                     Perlin-ASCII
                 </h1>
             </div>
             <div class="col-3">
                 <div class="dropdown d-flex justify-content-end">
-                    <button type="button" class="btn btn-light dropdown-toggle fs-2 p-1 d-flex align-items-center" data-bs-toggle="dropdown">
-                        <i style="color: black;" class="bi bi-gear d-flex align-items-center"></i>
+                    <button type="button" class="btn btn-light dropdown-toggle fs-2 p-1 d-flex align-items-center me-1" data-bs-toggle="dropdown">
+                        <i class="bi bi-gear d-flex align-items-center"></i>
                     </button>
                     <ul class="dropdown-menu p-2">
                         <div>
                             <div class="d-flex justify-content-between">
-                                <label style="color: black;" for="font-size" class="form-label text-nowrap me-5">Tamanho da fonte</label>
-                                <span style="color: black;" id="font-size-num"></span>
+                                <label for="font-size" class="form-label text-nowrap me-5">Tamanho da fonte</label>
+                                <span id="font-size-num"></span>
                             </div>
                             <input type="range" class="form-range px-2 mb-2" min="1" max="50" step="1" value="50" id="font-size">
                         </div>
                         <div>
                             <div class="d-flex justify-content-between">
-                                <label style="color: black;" for="scale" class="form-label">Escala</label>
-                                <span style="color: black;" id="scale-num">2</span>
+                                <label for="scale" class="form-label">Escala</label>
+                                <span id="scale-num">2</span>
                             </div>
                             <input type="range" class="form-range px-2 mb-2" min="0.01" max="10" step="0.01" value="5" id="scale">
                         </div>
                         <div>
                             <div class="d-flex justify-content-between">
-                                <label style="color: black;" for="increment" class="form-label">Incremento</label>
-                                <span style="color: black;" id="increment-num">0.005</span>
+                                <label for="increment" class="form-label">Incremento</label>
+                                <span id="increment-num">0.005</span>
                             </div>
                             <input type="range" class="form-range px-2 mb-2" min="0.001" max="0.01" step="0.001" value="0.005" id="increment">
                         </div>
                         <div>
                             <div class="d-flex justify-content-between">
-                                <label style="color: black;" for="time-passage" class="form-label">Tempo</label>
-                                <span style="color: black;" id="time-passage-num">0.00003</span>
+                                <label for="time-passage" class="form-label">Tempo</label>
+                                <span id="time-passage-num">0.00003</span>
                             </div>
                             <input type="range" class="form-range px-2 mb-2" min="0.000001" max="0.0001" step="0.000001" value="0.00003" id="time-passage">
+                        </div>
+                        <div class="p-2 mb-2">
+                            <div class="row">
+                                <div class="col-4 d-flex flex-column">
+                                    <div class="form-check form-switch mx-auto d-flex justify-content-center">
+                                        <input class="onoff-color form-check-input" type="checkbox" role="switch" checked disabled>
+                                    </div>
+                                    <input class="mx-auto color-selector" type="color" value="#ffffff"></input>
+                                </div>
+                                <div class="col-4 d-flex flex-column">
+                                    <div class="form-check form-switch mx-auto d-flex justify-content-center">
+                                        <input class="onoff-color form-check-input" type="checkbox" role="switch" checked>
+                                    </div>
+                                    <input class="mx-auto color-selector" type="color" value="#ff0000"></input>
+                                </div>                            <div class="col-4 d-flex flex-column">
+                                    <div class="form-check form-switch mx-auto d-flex justify-content-center">
+                                        <input class="onoff-color form-check-input" type="checkbox" role="switch">
+                                    </div>
+                                    <input class="mx-auto color-selector" type="color" value="#606060"></input>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 d-flex flex-column">
+                                    <div class="form-check form-switch mx-auto d-flex justify-content-center">
+                                        <input class="onoff-color form-check-input" type="checkbox" role="switch">
+                                    </div>
+                                    <input class="mx-auto color-selector" type="color" value="#606060"></input>
+                                </div>
+                                <div class="col-4 d-flex flex-column">
+                                    <div class="form-check form-switch mx-auto d-flex justify-content-center">
+                                        <input class="onoff-color form-check-input" type="checkbox" role="switch">
+                                    </div>
+                                    <input class="mx-auto color-selector" type="color" value="#606060"></input>
+                                </div>                            <div class="col-4 d-flex flex-column">
+                                    <div class="form-check form-switch mx-auto d-flex justify-content-center">
+                                        <input class="onoff-color form-check-input" type="checkbox" role="switch">
+                                    </div>
+                                    <input class="mx-auto color-selector" type="color" value="#606060"></input>
+                                </div>
+                            </div>    
+                            <div class="row">
+                                <div class="col-4 d-flex flex-column">
+                                    <div class="form-check form-switch mx-auto d-flex justify-content-center">
+                                        <input class="onoff-color form-check-input" type="checkbox" role="switch">
+                                    </div>
+                                    <input class="mx-auto color-selector" type="color" value="#606060"></input>
+                                </div>
+                                <div class="col-4 d-flex flex-column">
+                                    <div class="form-check form-switch mx-auto d-flex justify-content-center">
+                                        <input class="onoff-color form-check-input" type="checkbox" role="switch">
+                                    </div>
+                                    <input class="mx-auto color-selector" type="color" value="#606060"></input>
+                                </div>                            <div class="col-4 d-flex flex-column">
+                                    <div class="form-check form-switch mx-auto d-flex justify-content-center">
+                                        <input class="onoff-color form-check-input" type="checkbox" role="switch">
+                                    </div>
+                                    <input class="mx-auto color-selector" type="color" value="#606060"></input>
+                                </div>
+                            </div>
                         </div>
                     </ul>
                 </div>
@@ -63,6 +122,6 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script type="module" src="main.js"></script>
+    <script type="module" src="./main.js"></script>
 </body>
 </html>

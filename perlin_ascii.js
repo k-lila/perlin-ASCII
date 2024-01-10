@@ -9,16 +9,14 @@ var perlin_ascii = function(p) {
     p.timePassage = parseFloat(document.getElementById('time-passage').value);
     p.cols = Math.floor(p.width/p.size);
     p.rows = Math.floor(p.height/p.size);
-    p.paleta = ['#541e35', '#df5d2e', '#ffb43e', '#a4c972', '#6bb38e'];
-    // p.paleta = ['red', 'white'];
-    // p.paleta = ['#001219', '#005F73', '#0A9396', '#94D2BD', '#E9D8A6', '#EE9B00', '#CA6702', '#BB3E03', '#AE2012', '#9B2226'];
+    p.paleta = ['#ffffff', '#ff0000'];
     p.time = 0;
     p.test = true;
     p.test_counter = 0;
     p.font;
 
     p.preload = function() {
-        p.font = p.loadFont('./Silkscreen-Regular.ttf')
+        p.font = p.loadFont('./Silkscreen-Regular.ttf');
     }
 
     p.setup = function() {
@@ -53,7 +51,7 @@ var perlin_ascii = function(p) {
         const fps = Math.floor(p.frameRate());        
         document.getElementById('frame-counter').innerHTML = `${fps}`;
         if (p.test) {
-            if (fps > 25) {
+            if (fps > 15) {
                 p.size -= 1;
                 p.cols = Math.floor(p.width/p.size);
                 p.rows = Math.floor(p.height/p.size);
