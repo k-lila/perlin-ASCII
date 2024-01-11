@@ -23,10 +23,10 @@ var perlin_ascii = function(p) {
         p.createCanvas(window.innerWidth, window.innerHeight);
         p.textAlign(p.RIGHT, p.CENTER);
         p.textFont(p.font)
-
     }
+
     p.draw = function() {
-        p.background(0);
+        p.clear()
         let x_perlin = 0;
         for (let i=0; i<p.cols; i++) {
             let y_perlin = 0;
@@ -65,6 +65,7 @@ var perlin_ascii = function(p) {
             }
         }
     }
+
 }
 
 export { perlin_ascii };
