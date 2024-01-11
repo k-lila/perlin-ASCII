@@ -1,5 +1,4 @@
 import { perlin_ascii } from "./perlin_ascii.js";
-
 function range_buttons(object) {
     const size_btn = document.getElementById('font-size');
     size_btn.addEventListener('change', () => {
@@ -24,7 +23,6 @@ function range_buttons(object) {
         object.timePassage = parseFloat(time_btn.value);
     });
 }
-
 function palete(object) {
     function updateColors() {
         var paleta = [];
@@ -45,7 +43,6 @@ function palete(object) {
         selected_colors[i].addEventListener('input', updateColors);
     }
 }
-
 function resizeCanvas(object) {
     window.addEventListener('resize', () => {
         object.cols = Math.floor(window.innerWidth/object.size);
@@ -53,14 +50,12 @@ function resizeCanvas(object) {
         object.resizeCanvas(window.innerWidth, window.innerHeight);
     })
 }
-
 function main() {
     window.addEventListener('load', () => {
         const perlinAscii = new p5(perlin_ascii);
-        resizeCanvas(perlinAscii)
-        range_buttons(perlinAscii)
-        palete(perlinAscii)
+        resizeCanvas(perlinAscii);
+        range_buttons(perlinAscii);
+        palete(perlinAscii);
     })
 }
-
 document.addEventListener('DOMContentLoaded', main);

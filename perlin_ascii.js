@@ -9,24 +9,21 @@ var perlin_ascii = function(p) {
     p.timePassage = parseFloat(document.getElementById('time-passage').value);
     p.cols = Math.floor(p.width/p.size);
     p.rows = Math.floor(p.height/p.size);
-    p.paleta = ['#ffffff', '#eeeeee', '#8b0000', '#bf0000', '#ff0000']
+    p.paleta = ['#ffffff', '#eeeeee', '#8b0000', '#bf0000', '#ff0000'];
     p.time = 0;
     p.test = true;
     p.test_counter = 0;
     p.font;
-
     p.preload = function() {
         p.font = p.loadFont('./Silkscreen-Regular.ttf');
     }
-
     p.setup = function() {
         p.createCanvas(window.innerWidth, window.innerHeight);
         p.textAlign(p.RIGHT, p.CENTER);
-        p.textFont(p.font)
+        p.textFont(p.font);
     }
-
     p.draw = function() {
-        p.clear()
+        p.background(0)
         let x_perlin = 0;
         for (let i=0; i<p.cols; i++) {
             let y_perlin = 0;
@@ -65,7 +62,5 @@ var perlin_ascii = function(p) {
             }
         }
     }
-
 }
-
 export { perlin_ascii };
