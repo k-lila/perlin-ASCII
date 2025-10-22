@@ -4,10 +4,10 @@ var perlin_ascii = function (p) {
   p.density = " _.,-=+:;cba!?0123456789$W#@Ñ";
   p.size = parseInt(document.getElementById("font-size").value);
   p.textModifier = 0.5 / p.density.length;
-  p.noiseScale = parseInt(document.getElementById("scale").value);
-  p.inc = parseFloat(document.getElementById("increment").value);
+  p.noiseScale = parseInt(document.getElementById("scale").value * 3 * 0.5);
+  p.inc = parseFloat(document.getElementById("increment").value * 0.003 * 0.5);
   p.timePassage = parseFloat(
-    document.getElementById("time-passage").value * 0.001
+    document.getElementById("time-passage").value * 0.002 * 0.5
   );
   p.cols = Math.floor(p.width / p.size);
   p.rows = Math.floor(p.height / p.size);
@@ -55,6 +55,13 @@ var perlin_ascii = function (p) {
 
     const fps = Math.floor(p.frameRate());
     p.frameCounterElement.innerHTML = fps;
+    if (fps < 1) {
+      p.size += 1;
+      p.cols = Math.floor(p.width / p.size);
+      p.rows = Math.floor(p.height / p.size);
+      document.getElementById("font-size").value = p.size;
+      document.getElementById("font-size-num").innerHTML = p.size;
+    }
     if (p.test) {
       if (fps > 9) {
         p.size -= 1;

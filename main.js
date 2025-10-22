@@ -10,17 +10,17 @@ function range_buttons(object) {
   const scale_btn = document.getElementById("scale");
   scale_btn.addEventListener("change", () => {
     document.getElementById("scale-num").innerHTML = scale_btn.value;
-    object.noiseScale = parseFloat(scale_btn.value);
+    object.noiseScale = parseFloat(scale_btn.value * 3 * 0.5);
   });
   const increment_btn = document.getElementById("increment");
   increment_btn.addEventListener("change", () => {
     document.getElementById("increment-num").innerHTML = increment_btn.value;
-    object.inc = parseFloat(increment_btn.value);
+    object.inc = parseFloat(increment_btn.value * 0.003 * 0.5);
   });
   const time_btn = document.getElementById("time-passage");
   time_btn.addEventListener("change", () => {
     document.getElementById("time-passage-num").innerHTML = time_btn.value;
-    object.timePassage = parseFloat(time_btn.value * 0.001);
+    object.timePassage = parseFloat(time_btn.value * 0.002 * 0.5);
   });
 }
 
